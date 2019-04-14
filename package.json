@@ -1,13 +1,12 @@
 {
-  "name": "example",
+  "name": "magic-wandaphone",
   "version": "0.0.0",
-  "description": "",
   "scripts": {
     "build": "browserify src/index.js -t babelify --outfile dist/index.js -dv",
     "watch": "mkdirp dist && watchify src/index.js -t babelify --outfile dist/index.js -dv",
     "start": "concurrently \"npm run watch\" \"live-server --watch=./dist/index.js,./index.html\""
   },
-  "repository": "",
+  "repository": "https://github.com/mjyc/magic-wandaphone",
   "author": "Michael Jae-Yoon Chung",
   "license": "MIT",
   "dependencies": {
