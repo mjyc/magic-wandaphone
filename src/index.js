@@ -16,7 +16,7 @@ function main() {
     fromEvent(window, 'mouseup').mapTo('off'),
     fromEvent(window, 'touchstart').mapTo('on'),
     fromEvent(window, 'touchend').mapTo('off'),
-  ).startWith('off');
+  ).startWith('off').debug();
 
   const vdom$ = xs.merge(
     input$.filter(input => input === 'on'),
@@ -39,7 +39,7 @@ function main() {
       },
       style: {'height': '50vmin'}
     })])
-  );
+  ).debug();
 
   const deviceMotion$ = fromEvent(window, 'devicemotion');
   const play$ = xs.combine(
@@ -48,8 +48,7 @@ function main() {
       .map(({
         acceleration,
         ..._, // accelerationIncludingGravity, rotationRate, interval
-      }) => acceleration)
-      .startWith(null),
+      }) => acceleration),
   )
   .fold((prev, [input, acc]) => (input === 'on' ? {
     maxX: (prev === null || acc.x > prev.maxX) ? acc.x : prev.maxX,
