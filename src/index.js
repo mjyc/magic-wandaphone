@@ -16,7 +16,7 @@ function main() {
     fromEvent(window, 'mouseup').mapTo('off'),
     fromEvent(window, 'touchstart').mapTo('on'),
     fromEvent(window, 'touchend').mapTo('off'),
-  ).startWith('off').debug();
+  ).startWith('off');
 
   const vdom$ = xs.merge(
     input$.filter(input => input === 'on'),
@@ -39,7 +39,7 @@ function main() {
       },
       style: {'height': '50vmin'}
     })])
-  ).debug();
+  );
 
   const deviceMotion$ = fromEvent(window, 'devicemotion');
   const play$ = xs.combine(
@@ -69,7 +69,7 @@ function main() {
   .compose(dropRepeats());
 
   return {
-    // DOM: vdom$,
+    DOM: vdom$,
     AudioPlayer: play$,
   };
 }
