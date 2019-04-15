@@ -1,0 +1,7 @@
+{
+  "name": "magic-wandaphone",
+  "short_name": "magic-wandaphone",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000"
+}
